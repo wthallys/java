@@ -1,2 +1,2 @@
 # java
-Practing Java
+Udemy Java course exercises
