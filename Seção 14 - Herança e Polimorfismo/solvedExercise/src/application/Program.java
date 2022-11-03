@@ -1,6 +1,7 @@
 package application;
 
 import entities.Employee;
+import entities.OutsourcedEmployee;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ public class Program {
 
         List<Employee> list = new ArrayList<>();
 
-        System.out.println("Enter the number of employees: ");
+        System.out.print("Enter the number of employees: ");
         int n = sc.nextInt();
 
         for (int i = 1; i <= n; i++) {
@@ -26,12 +27,22 @@ public class Program {
             sc.nextLine();
             String name = sc.nextLine();
             System.out.print("Hours: ");
-            double hours = sc.nextDouble();
+            int hours = sc.nextInt();
             System.out.print("Value per hour: ");
-            double valuePerHour = sc.nextInt();
+            double valuePerHour = sc.nextDouble();
             if (ch == 'y') {
-                System.out.println();
+                System.out.print("Additional charge: ");
+                double additionalCharge = sc.nextDouble();
+                list.add(new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge));
+            } else {
+                list.add(new Employee(name, hours, valuePerHour));
             }
+        }
+
+        System.out.println();
+        System.out.println("PAYMENTS:");
+        for (Employee emp : list) {
+            System.out.println(emp.getName() + " - $ " + String.format("%.2f", emp.payment()));
         }
 
     }
