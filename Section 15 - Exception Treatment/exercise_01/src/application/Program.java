@@ -43,8 +43,6 @@ public class Program {
                 System.out.println("Reservation: " + reservation);
             }
 
-//            reservation.updateDates(checkIn, checkOut);
-//            System.out.println("Reservation: " + reservation);
         }
     }
 }
