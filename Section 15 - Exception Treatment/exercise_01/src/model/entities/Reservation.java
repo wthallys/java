@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
+import static java.time.temporal.ChronoUnit.DAYS;
 import static java.time.temporal.ChronoUnit.MILLIS;
 
 public class Reservation {
@@ -37,8 +38,10 @@ public class Reservation {
     }
 
     public long duration() {
-        long diff = MILLIS.between(checkOut, checkIn);
-        return TimeUnit.MILLISECONDS.toDays(diff);
+//        long diff = MILLIS.between(checkOut, checkIn);
+//        long diff = DAYS.between(checkIn, checkOut);
+//        return TimeUnit.MILLISECONDS.toDays(diff);
+        return DAYS.between(checkIn, checkOut);
     }
 
     public void updateDates(LocalDate checkIn, LocalDate checkOut) {
